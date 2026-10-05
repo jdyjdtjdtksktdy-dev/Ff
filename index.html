@@ -1,0 +1,352 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GuildGlory | Chotu</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top,#142b4c,#050914 65%);
+  color: #f5f8ff;
+  min-height: 100vh;
+}
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 22px 15px 40px;
+}
+header {
+  text-align: center;
+  padding: 15px 0 25px;
+}
+header h1 {
+  margin: 0;
+  font-size: 32px;
+  letter-spacing: 1px;
+}
+header h1 span { color: #f4bd39; }
+header p {
+  color: #9db5d1;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+.panel {
+  background: linear-gradient(145deg,#0d1b32,#071020);
+  border: 1px solid #21486c;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 15px 40px #0006;
+}
+h2 { font-size: 22px; margin: 0 0 8px; }
+.desc {
+  color: #9aafc6;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+label {
+  display: block;
+  color: #b5c9df;
+  font-size: 12px;
+  margin: 15px 0 7px;
+}
+input, select {
+  width: 100%;
+  padding: 14px;
+  background: #050b18;
+  border: 1px solid #285078;
+  border-radius: 12px;
+  color: white;
+  font-size: 15px;
+}
+.packages {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 12px;
+}
+.package {
+  background: #071226;
+  color: white;
+  border: 1px solid #24517a;
+  border-radius: 15px;
+  padding: 16px 12px;
+  text-align: left;
+  min-height: 125px;
+  cursor: pointer;
+}
+.package.selected {
+  border: 2px solid #f4bd39;
+  background: #192039;
+  padding: 15px 11px;
+  box-shadow: 0 0 18px #f4bd3930;
+}
+.package h3 {
+  margin: 0;
+  font-size: 17px;
+}
+.price {
+  color: #f4bd39;
+  font-size: 23px;
+  font-weight: bold;
+  margin: 12px 0 8px;
+}
+.points {
+  color: #4bd9ff;
+  font-size: 12px;
+}
+button { font-family: inherit; }
+.primary {
+  width: 100%;
+  border: 0;
+  border-radius: 13px;
+  padding: 16px;
+  margin-top: 18px;
+  background: linear-gradient(100deg,#f8ca58,#d99722);
+  color: #211806;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+}
+.secondary {
+  width: 100%;
+  padding: 15px;
+  margin-top: 12px;
+  border-radius: 12px;
+  border: 1px solid #28608a;
+  background: #10223b;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.hidden { display: none !important; }
+.details {
+  border-bottom: 1px solid #23415d;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 0;
+  font-size: 14px;
+}
+.details strong { color: white; }
+.qr {
+  margin-top: 18px;
+  border: 1px solid #28608a;
+  background: #050b18;
+  border-radius: 15px;
+  padding: 12px;
+  text-align: center;
+}
+.qr img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+.qr p {
+  color: #9aafc6;
+  font-size: 11px;
+}
+.status {
+  margin-top: 15px;
+  padding: 14px;
+  border: 1px solid #285078;
+  border-radius: 12px;
+  background: #061022;
+  color: #a5dfff;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.note {
+  color: #879cb3;
+  font-size: 11px;
+  line-height: 1.6;
+  margin-top: 15px;
+}
+footer {
+  text-align: center;
+  color: #8199b4;
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin-top: 25px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<header>
+  <h1>Guild<span>Glory</span></h1>
+  <p>MORE BOTS • MORE POWER</p>
+</header>
+
+<section class="panel" id="selection">
+  <h2>Choose Your Package</h2>
+  <p class="desc">
+    Select your bot package and enter your Guild ID.
+    The scanner will appear after you continue.
+  </p>
+
+  <label for="country">Country</label>
+  <select id="country">
+    <option>India</option>
+    <option>Bangladesh</option>
+    <option>Nepal</option>
+    <option>Other</option>
+  </select>
+
+  <label for="guild">Guild ID</label>
+  <input id="guild" placeholder="Enter your Guild ID">
+
+  <label>Select Bot Package</label>
+  <div class="packages">
+
+    <button class="package" data-count="4">
+      <h3>4 Bots</h3>
+      <div class="price">₹95</div>
+      <div class="points">◇ 4,000 Glory Points</div>
+    </button>
+
+    <button class="package" data-count="8">
+      <h3>8 Bots</h3>
+      <div class="price">₹190</div>
+      <div class="points">◇ 8,000 Glory Points</div>
+    </button>
+
+    <button class="package" data-count="12">
+      <h3>12 Bots</h3>
+      <div class="price">₹285</div>
+      <div class="points">◇ 12,000 Glory Points</div>
+    </button>
+
+    <button class="package" data-count="16">
+      <h3>16 Bots</h3>
+      <div class="price">₹380</div>
+      <div class="points">◇ 16,000 Glory Points</div>
+    </button>
+
+  </div>
+
+  <button class="primary" id="continue">
+    Continue to Payment
+  </button>
+</section>
+
+<section class="panel hidden" id="payment">
+  <h2>Payment Scanner</h2>
+  <p class="desc">
+    Review your package and scan the official payment QR.
+  </p>
+
+  <div class="details">
+    <span>Selected Package</span>
+    <strong id="selectedPackage"></strong>
+  </div>
+  <div class="details">
+    <span>Total Price</span>
+    <strong id="selectedPrice"></strong>
+  </div>
+  <div class="details">
+    <span>Glory Points</span>
+    <strong id="selectedPoints"></strong>
+  </div>
+
+  <div class="qr">
+    <img src="scanner.jpg" alt="Official payment QR">
+    <p>Scan using your payment app</p>
+  </div>
+
+  <button class="secondary" id="verify">
+    Verify Payment
+  </button>
+
+  <div class="status" id="status">
+    Waiting for payment confirmation.
+  </div>
+
+  <button class="secondary" id="back">
+    Back to Packages
+  </button>
+
+  <p class="note">
+    Demo version: payment verification is not connected.
+    A real successful payment must be confirmed by your
+    payment provider before an order is marked successful.
+  </p>
+</section>
+
+<footer>CHOTU • GUILDGLORY</footer>
+</div>
+
+<script>
+const packages = {
+  4:  { price: 95,  points: 4000 },
+  8:  { price: 190, points: 8000 },
+  12: { price: 285, points: 12000 },
+  16: { price: 380, points: 16000 }
+};
+
+let chosen = null;
+
+const selection = document.getElementById("selection");
+const payment = document.getElementById("payment");
+const status = document.getElementById("status");
+
+document.querySelectorAll(".package").forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll(".package")
+      .forEach(item => item.classList.remove("selected"));
+
+    button.classList.add("selected");
+    chosen = Number(button.dataset.count);
+  });
+});
+
+document.getElementById("continue").onclick = () => {
+  const guild = document.getElementById("guild").value.trim();
+
+  if (!guild) {
+    alert("Please enter your Guild ID.");
+    return;
+  }
+
+  if (!chosen) {
+    alert("Please select a bot package.");
+    return;
+  }
+
+  const item = packages[chosen];
+
+  document.getElementById("selectedPackage").textContent =
+    chosen + " Bots";
+
+  document.getElementById("selectedPrice").textContent =
+    "₹" + item.price;
+
+  document.getElementById("selectedPoints").textContent =
+    item.points.toLocaleString("en-IN");
+
+  selection.classList.add("hidden");
+  payment.classList.remove("hidden");
+
+  status.textContent =
+    "Waiting for payment. This demo cannot verify transactions.";
+};
+
+document.getElementById("verify").onclick = () => {
+  status.textContent =
+    "Payment not verified. This demo is not connected to your payment provider. Do not treat this as successful yet.";
+};
+
+document.getElementById("back").onclick = () => {
+  payment.classList.add("hidden");
+  selection.classList.remove("hidden");
+};
+</script>
+</body>
+</html>
